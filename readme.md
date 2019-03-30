@@ -8,40 +8,39 @@ These instructions will get you a copy of the project up and running on your loc
 
 ### Prerequisites
 
-You will need a system that has PostgreSQL and Python3 installed to be able to run this code.
+You will need a system that has PostgreSQL and Python3 installed to be able to run this code. This project assumes you have these already setup. If you don't, please find instructions on Google based on your system (Windows/MacOS/Unix).
 
-```
-Give examples
-```
 
 ### Installing
 
-A step by step series of examples that tell you how to get a development env running
+You can install psql and python on your system or use a VM that already has these installed.
 
-Say what the step will be
+Download the project from github and create a folder named "LogAnalysis" and unzip the files.
+Next, download the data [here](https://d17h27t6h515a5.cloudfront.net/topher/2016/August/57b5f748_newsdata/newsdata.zip). You will need to unzip this file after downloading it. The file inside is called newsdata.sql. Put this file into the "LogAnalysis" folder you just created.
 
+To load the data, cd into the vagrant directory and use the command 
 ```
-Give the example
-```
-
-And repeat
-
-```
-until finished
+psql -d news -f newsdata.sql
 ```
 
-End with an example of getting some data out of the system or using it for a little demo
+Here's what this command does:
+```
+psql — the PostgreSQL command line program
 
+-d news — connect to the database named news which has been set up for you
 
-## Built With
+-f newsdata.sql — run the SQL statements in the file newsdata.sql
+```
 
-* [Dropwizard](http://www.dropwizard.io/1.0.2/docs/) - The web framework used
-* [Maven](https://maven.apache.org/) - Dependency Management
-* [ROME](https://rometools.github.io/rome/) - Used to generate RSS Feeds
+Running this command will connect to your installed database server and execute the SQL commands in the downloaded file, creating tables and populating them with data. After this is completed go into the "LogAnalysis" folder on your console and type the command below to run the report;
+```
+python log.py
+```
 
 ## Authors
 
 * **Kaan Eroglu** - *Initial work* - [kaan.ca](https://www.kaan.ca)
+* **Udacity FSND Instructions** - *Installation instructions*
 
 
 ## License
