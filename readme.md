@@ -49,7 +49,3 @@ python3 logs.py
 
 This project is licensed under the MIT License 
 
-## Acknowledgments
-
-* Udacity mentors
-* Double shot americanos
